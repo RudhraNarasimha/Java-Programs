@@ -12,7 +12,6 @@ public class PrimeNumbers {
 		System.out.println("Enter Number :");
 
 		int a = scanner.nextInt();
-		
 
 		if (a % a == 0 || a % 1 == 0) {
 
