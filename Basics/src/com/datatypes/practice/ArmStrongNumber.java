@@ -2,43 +2,38 @@ package com.datatypes.practice;
 
 import java.util.Scanner;
 
-// Arm Strong
-
-public class ArmStrongNumber {
-
+class Main {
 	public static void main(String[] args) {
-
 		Scanner scanner = new Scanner(System.in);
 
-		System.out.println("Enter Any Number: ");
+		System.out.println("Enter Any Number:");
+		int num = scanner.nextInt();
+		int originalNum = num;
 
-		int number = scanner.nextInt();
-		int sum = 0;
-		int sum1 = number;
 		int count = 0;
-// To Find No of Digits.
-		while (number > 0) {
-			number = number / 10;
+		int temp = num;
+
+		// Count the number of digits
+		while (temp > 0) {
+			temp = temp / 10;
 			count++;
 		}
 
-		number = sum1;
+		int sum = 0;
+		temp = num;
 
-		// To Calculate the Power and Sum of them.
-		while (number != 0) { // 153
-
-			int rem = number % 10; // 3 // last digit
-
-			sum +=  Math.pow(rem, count);
-
-			number = number / 10; // remaining digits.
+		// Sum of digits raised to the power of count
+		while (temp > 0) {
+			int rem = temp % 10;
+			sum += Math.pow(rem, count); // correct way to do power
+			temp = temp / 10;
 		}
 
-		if (sum == sum1) {
-			System.out.println(sum1 + " is an ArmStrong Number");
+		// Check Armstrong condition
+		if (sum == originalNum) {
+			System.out.println("Given Number is an Armstrong Number");
 		} else {
-			System.out.println(sum1 + " is Not an ArmStrong Number");
+			System.out.println("Given Number is NOT an Armstrong Number");
 		}
 	}
-
 }
